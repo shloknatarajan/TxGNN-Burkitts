@@ -1,3 +1,18 @@
+# TxGNN Applied to Burkitt's Lymphoma Repurposing
+## Goal
+Find a drug from the WHO Essential Medicine List that can potentially provide a treatment option
+
+
+## Progress Tracker
+| Epic | Story | Status |
+| --- | --- | --- |
+| WHO List Scraping | Find Latest List | ✅ |
+|                   | Convert to CSV | ✅ |
+|                   | Figure out what ID format to use | |
+|                   | Convert to ID Format | |
+
+
+
 # TxGNN: Zero-shot prediction of therapeutic use with geometric deep learning and human centered design
 
 This repository hosts the official implementation of TxGNN, a model for identifying therapeutic opportunities for diseases with limited treatment options and minimal molecular understanding that leverages recent advances in geometric deep learning and human-centered. 
