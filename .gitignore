@@ -132,6 +132,12 @@ dmypy.json
 .pixi
 *.egg-info
 
+# data
+TxGNNExplorer/
+data/edges.csv
+data/kg.csv
+data/node.csv
+data/kg_directed.csv
+data/disease_eval_*/
 # misc
 .DS_Store
-TxGNNExplorer/

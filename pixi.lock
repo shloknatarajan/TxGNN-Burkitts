@@ -132,7 +132,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/openpyxl-3.1.5-py38had79a0c_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/openssl-1.1.1w-h53f4e23_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/packaging-25.0-pyh29332c3_1.conda
-      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pandas-2.0.3-py38hefb543e_1.conda
+      - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pandas-1.5.3-py38h61dac83_1.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pango-1.54.0-h9ee27a3_1.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/parso-0.8.4-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/patsy-0.5.6-pyhd8ed1ab_0.conda
@@ -157,7 +157,6 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/noarch/pysocks-1.7.1-pyha2e5f31_6.tar.bz2
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/python-3.8.15-hf452327_0_cpython.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python-dateutil-2.9.0-pyhd8ed1ab_0.conda
-      - conda: https://conda.anaconda.org/conda-forge/noarch/python-tzdata-2024.2-pyhd8ed1ab_0.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.8-7_cp38.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pytorch-2.0.0-cpu_generic_py38h1ad5e6f_4.conda
       - conda: https://conda.anaconda.org/conda-forge/noarch/pytz-2024.2-pyhd8ed1ab_0.conda
@@ -233,8 +232,6 @@ packages:
   - libintl >=0.22.5,<1.0a0
   constrains:
   - atk-1.0 2.38.0
-  arch: arm64
-  platform: osx
   license: LGPL-2.0-or-later
   license_family: LGPL
   purls: []
@@ -324,8 +321,6 @@ packages:
   - libzlib >=1.2.13,<2.0.0a0
   - pixman >=0.42.2,<1.0a0
   - zlib
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-only or MPL-1.1
   purls: []
   size: 897919
@@ -492,8 +487,6 @@ packages:
   depends:
   - __osx >=11.0
   - libexpat 2.7.0 h286801f_0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls: []
@@ -548,8 +541,6 @@ packages:
   - expat >=2.5.0,<3.0a0
   - freetype >=2.12.1,<3.0a0
   - libzlib >=1.2.13,<2.0.0a0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls: []
@@ -608,8 +599,6 @@ packages:
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/fribidi-1.0.10-h27ca646_0.tar.bz2
   sha256: 4b37ea851a2cf85edf0a63d2a63266847ec3dcbba4a31156d430cdd6aa811303
   md5: c64443234ff91d70cb9c7dc926c58834
-  arch: arm64
-  platform: osx
   license: LGPL-2.1
   purls: []
   size: 60255
@@ -636,8 +625,6 @@ packages:
   - libjpeg-turbo >=3.0.0,<4.0a0
   - libpng >=1.6.43,<1.7.0a0
   - libtiff >=4.6.0,<4.8.0a0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   license_family: LGPL
   purls: []
@@ -657,8 +644,6 @@ packages:
   - libiconv >=1.18,<2.0a0
   - libintl 0.24.1 h493aca8_0
   - libintl-devel 0.24.1 h493aca8_0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later AND GPL-3.0-or-later
   purls: []
   size: 514509
@@ -670,8 +655,6 @@ packages:
   - __osx >=11.0
   - libiconv >=1.18,<2.0a0
   - libintl 0.24.1 h493aca8_0
-  arch: arm64
-  platform: osx
   license: GPL-3.0-or-later
   license_family: GPL
   purls: []
@@ -680,8 +663,6 @@ packages:
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/giflib-5.2.2-h93a5062_0.conda
   sha256: 843b3f364ff844137e37d5c0a181f11f6d51adcedd216f019d074e5aa5d7e09c
   md5: 95fa1486c77505330c20f7202492b913
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls: []
@@ -742,8 +723,6 @@ packages:
   md5: 339991336eeddb70076d8ca826dac625
   depends:
   - libcxx >=16
-  arch: arm64
-  platform: osx
   license: LGPL-2.0-or-later
   license_family: LGPL
   purls: []
@@ -767,8 +746,6 @@ packages:
   - libwebp-base >=1.4.0,<2.0a0
   - libzlib >=1.2.13,<2.0.0a0
   - pango >=1.50.14,<2.0a0
-  arch: arm64
-  platform: osx
   license: EPL-1.0
   license_family: Other
   purls: []
@@ -784,8 +761,6 @@ packages:
   - gettext >=0.21.1,<1.0a0
   - libglib >=2.78.4,<3.0a0
   - pango >=1.50.14,<2.0a0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   purls: []
   size: 6159912
@@ -796,8 +771,6 @@ packages:
   depends:
   - libcxx >=15.0.7
   - libglib >=2.76.3,<3.0a0
-  arch: arm64
-  platform: osx
   license: LGPL-2.0-or-later
   license_family: LGPL
   purls: []
@@ -827,8 +800,6 @@ packages:
   - icu >=73.2,<74.0a0
   - libcxx >=16
   - libglib >=2.80.2,<3.0a0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls: []
@@ -859,8 +830,6 @@ packages:
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/icu-73.2-hc8870d7_0.conda
   sha256: ff9cd0c6cd1349954c801fb443c94192b637e1b414514539f3c49c56a39f51b1
   md5: 8521bd47c0e11c5902535bb1a17c565f
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls: []
@@ -1085,8 +1054,6 @@ packages:
   depends:
   - __osx >=11.0
   - libcxx >=18
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   purls: []
   size: 52180
@@ -1097,8 +1064,6 @@ packages:
   depends:
   - __osx >=11.0
   - libasprintf 0.24.1 h493aca8_0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   purls: []
   size: 35042
@@ -1188,8 +1153,6 @@ packages:
   - __osx >=11.0
   constrains:
   - expat 2.7.0.*
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls: []
@@ -1223,8 +1186,6 @@ packages:
   - libwebp-base >=1.3.2,<2.0a0
   - libzlib >=1.2.13,<2.0.0a0
   - zlib
-  arch: arm64
-  platform: osx
   license: GD
   license_family: BSD
   purls: []
@@ -1237,8 +1198,6 @@ packages:
   - __osx >=11.0
   - libiconv >=1.18,<2.0a0
   - libintl 0.24.1 h493aca8_0
-  arch: arm64
-  platform: osx
   license: GPL-3.0-or-later
   license_family: GPL
   purls: []
@@ -1252,8 +1211,6 @@ packages:
   - libgettextpo 0.24.1 h493aca8_0
   - libiconv >=1.18,<2.0a0
   - libintl 0.24.1 h493aca8_0
-  arch: arm64
-  platform: osx
   license: GPL-3.0-or-later
   license_family: GPL
   purls: []
@@ -1293,8 +1250,6 @@ packages:
   - pcre2 >=10.43,<10.44.0a0
   constrains:
   - glib 2.80.2 *_0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   purls: []
   size: 3623970
@@ -1304,8 +1259,6 @@ packages:
   md5: 450e6bdc0c7d986acf7b8443dce87111
   depends:
   - __osx >=11.0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-only
   purls: []
   size: 681804
@@ -1316,8 +1269,6 @@ packages:
   depends:
   - __osx >=11.0
   - libiconv >=1.18,<2.0a0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   purls: []
   size: 90547
@@ -1329,8 +1280,6 @@ packages:
   - __osx >=11.0
   - libiconv >=1.18,<2.0a0
   - libintl 0.24.1 h493aca8_0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   purls: []
   size: 40167
@@ -1431,8 +1380,6 @@ packages:
   - pango >=1.50.14,<2.0a0
   constrains:
   - __osx >=11.0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   purls: []
   size: 4768935
@@ -1491,8 +1438,6 @@ packages:
   - libtiff >=4.6.0,<4.8.0a0
   - libwebp-base 1.4.0.*
   - libwebp-base >=1.4.0,<2.0a0
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   purls: []
@@ -1503,8 +1448,6 @@ packages:
   md5: c0af0edfebe780b19940e94871f1a765
   constrains:
   - libwebp 1.4.0
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   purls: []
@@ -1531,8 +1474,6 @@ packages:
   - libiconv >=1.17,<2.0a0
   - libzlib >=1.2.13,<2.0a0
   - xz >=5.2.6,<6.0a0
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls: []
@@ -1778,8 +1719,6 @@ packages:
   - python >=3.8,<3.9.0a0
   - python >=3.8,<3.9.0a0 *_cpython
   - python_abi 3.8.* *_cp38
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls:
@@ -1808,24 +1747,25 @@ packages:
   - pkg:pypi/packaging?source=compressed-mapping
   size: 62477
   timestamp: 1745345660407
-- conda: https://conda.anaconda.org/conda-forge/osx-arm64/pandas-2.0.3-py38hefb543e_1.conda
-  sha256: 715700072e4fd79ff809c1436a817e6c64d3a8189755b5fd2152a21231c8f1f8
-  md5: a5be09f3455db87cd27c36f2a8eeaed3
+- conda: https://conda.anaconda.org/conda-forge/osx-arm64/pandas-1.5.3-py38h61dac83_1.conda
+  sha256: 5b582d2818c739d33f7069232fd0cc01ba1810c62522dca11ae6ca7640311a6c
+  md5: cbc70567afb9083f9ed2f48b0308757a
   depends:
-  - libcxx >=15.0.7
-  - numpy >=1.21.6,<2.0a0
+  - libcxx >=14.0.6
+  - numpy >=1.20.3,<2.0a0
   - python >=3.8,<3.9.0a0
   - python >=3.8,<3.9.0a0 *_cpython
   - python-dateutil >=2.8.1
-  - python-tzdata >=2022a
   - python_abi 3.8.* *_cp38
   - pytz >=2020.1
+  arch: arm64
+  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   purls:
   - pkg:pypi/pandas?source=hash-mapping
-  size: 11518966
-  timestamp: 1688742077728
+  size: 11206932
+  timestamp: 1680108806620
 - conda: https://conda.anaconda.org/conda-forge/osx-arm64/pango-1.54.0-h9ee27a3_1.conda
   sha256: 49b70f3d230381e3b1e6c036569455972130230462e0c53870b5c7135f5de467
   md5: 362011ec7d84f31f77ba13398c33cf6b
@@ -1839,8 +1779,6 @@ packages:
   - harfbuzz >=9.0.0,<10.0a0
   - libglib >=2.80.2,<3.0a0
   - libpng >=1.6.43,<1.7.0a0
-  arch: arm64
-  platform: osx
   license: LGPL-2.1-or-later
   purls: []
   size: 418380
@@ -1875,8 +1813,6 @@ packages:
   depends:
   - bzip2 >=1.0.8,<2.0a0
   - libzlib >=1.2.13,<2.0.0a0
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   purls: []
@@ -1944,8 +1880,6 @@ packages:
   depends:
   - __osx >=11.0
   - libcxx >=18
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls: []
@@ -2065,8 +1999,6 @@ packages:
   - python >=3.8,<3.9.0a0
   - python >=3.8,<3.9.0a0 *_cpython
   - python_abi 3.8.* *_cp38
-  arch: arm64
-  platform: osx
   license: MIT
   license_family: MIT
   purls:
@@ -2138,17 +2070,6 @@ packages:
   - pkg:pypi/python-dateutil?source=hash-mapping
   size: 222742
   timestamp: 1709299922152
-- conda: https://conda.anaconda.org/conda-forge/noarch/python-tzdata-2024.2-pyhd8ed1ab_0.conda
-  sha256: fe3f62ce2bc714bdaa222ab3f0344a2815ad9e853c6df38d15c9f25de8a3a6d4
-  md5: 986287f89929b2d629bd6ef6497dc307
-  depends:
-  - python >=3.6
-  license: Apache-2.0
-  license_family: APACHE
-  purls:
-  - pkg:pypi/tzdata?source=hash-mapping
-  size: 142527
-  timestamp: 1727140688093
 - conda: https://conda.anaconda.org/conda-forge/noarch/python_abi-3.8-7_cp38.conda
   build_number: 7
   sha256: 8445f6231bbf08e564e49e72bc7b0e2572be6a8553adc78bfe03c4ac0b169bf1
@@ -2364,8 +2285,6 @@ packages:
   - python >=3.8,<3.9.0a0 *_cpython
   - python_abi 3.8.* *_cp38
   - scipy >=1.4,!=1.9.2
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   purls:
