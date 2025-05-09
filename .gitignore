@@ -139,5 +139,7 @@ data/kg.csv
 data/node.csv
 data/kg_directed.csv
 data/disease_eval_*/
+checkpoints_all_seeds/
+
 # misc
 .DS_Store
