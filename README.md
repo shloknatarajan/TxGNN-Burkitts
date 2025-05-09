@@ -7,7 +7,8 @@ Find a drug from the WHO Essential Medicine List that can potentially provide a 
 | Epic | Story | Status |
 | --- | --- | --- |
 | General           | Fix Dependencies | ✅ |
-                    | Get prediction MVP |  |
+|                   | Setup on GCP | |
+|                   | Get prediction MVP | |
 | WHO List Scraping | Find Latest List | ✅ |
 |                   | Convert to CSV | ✅ |
 |                   | Figure out what ID format to use | |
