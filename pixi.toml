@@ -2,7 +2,7 @@
 authors = ["Shlok Natarajan <shlok.natarajan@gmail.com>"]
 channels = ["conda-forge", "pytorch", "pypi"]
 name = "TxGNN-Burkitts"
-platforms = ["osx-arm64"]
+platforms = ["linux-64"]
 version = "0.1.0"
 
 [dependencies]
