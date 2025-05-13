@@ -196,7 +196,7 @@ environments:
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zlib-1.2.13-hfb2fe0b_6.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstandard-0.23.0-py38h43bb1b3_0.conda
       - conda: https://conda.anaconda.org/conda-forge/osx-arm64/zstd-1.5.6-hb46c0d2_0.conda
-      - pypi: https://files.pythonhosted.org/packages/49/87/aec4b0048b21b1f0611ff74588521e6307dec9e84958762e29878fc0515e/dgl-1.1.2-cp38-cp38-macosx_11_0_arm64.whl
+      - pypi: https://files.pythonhosted.org/packages/ff/91/803c87d887673e8b4c6cfb4eb2d2585fee988853c075200c27ec5c0d7c1b/dgl-0.9.1-cp38-cp38-macosx_11_0_arm64.whl
 packages:
 - conda: https://conda.anaconda.org/conda-forge/noarch/appnope-0.1.4-pyhd8ed1ab_0.conda
   sha256: 45ae2d41f4a4dcf8707633d3d7ae376fc62f0c09b1d063c3049c3f6f8c911670
@@ -437,10 +437,10 @@ packages:
   - pkg:pypi/decorator?source=hash-mapping
   size: 12072
   timestamp: 1641555714315
-- pypi: https://files.pythonhosted.org/packages/49/87/aec4b0048b21b1f0611ff74588521e6307dec9e84958762e29878fc0515e/dgl-1.1.2-cp38-cp38-macosx_11_0_arm64.whl
+- pypi: https://files.pythonhosted.org/packages/ff/91/803c87d887673e8b4c6cfb4eb2d2585fee988853c075200c27ec5c0d7c1b/dgl-0.9.1-cp38-cp38-macosx_11_0_arm64.whl
   name: dgl
-  version: 1.1.2
-  sha256: d2a01e28161fccf9207f588e1d52088a5966615722fb3d9ee9cb9f37e3b365ef
+  version: 0.9.1
+  sha256: 10b940df11175001f0df016e004333c746b15bb22842cf1de863d20ec5b8740c
   requires_dist:
   - numpy>=1.14.0
   - scipy>=1.1.0
@@ -1758,8 +1758,6 @@ packages:
   - python-dateutil >=2.8.1
   - python_abi 3.8.* *_cp38
   - pytz >=2020.1
-  arch: arm64
-  platform: osx
   license: BSD-3-Clause
   license_family: BSD
   purls:
