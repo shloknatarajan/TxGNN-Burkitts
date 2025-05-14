@@ -13,6 +13,8 @@ Find a drug from the WHO Essential Medicine List that can potentially provide a 
 |                   | Convert to CSV | ✅ |
 |                   | Figure out what ID format to use | |
 |                   | Convert to ID Format | |
+                    | DrugBank lookup | ✅ |
+                    | RxNorm name normalization |  |
 
 
 
