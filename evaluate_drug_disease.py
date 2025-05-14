@@ -4,6 +4,16 @@ Script to evaluate the relationship between a specific drug and Burkitt's lympho
 
 from txgnn import TxData, TxGNN, TxEval
 import pandas as pd
+import torch
+from typing import List, Tuple
+
+# Check if CUDA is available
+device = 'cpu'
+if torch.cuda.is_available():
+    print("CUDA is available. Using GPU.")
+    device = 'cuda:0'
+else:
+    print("CUDA is not available. Using CPU.")
 
 def find_drug_disease_eval_idx(drug_name):
     """Find the disease evaluation index for a given drug name in TxGNN.
@@ -78,7 +88,7 @@ def evaluate_drug_disease_relationship(drug_name=None):
     # Initialize and load the model
     print("Initializing TxGNN model...")
     try:
-        model = TxGNN(data=data, device='cpu')  # Change to 'cuda:0' if using GPU
+        model = TxGNN(data=data, device=device)  # Change to 'cuda:0' if using GPU
         model.load_pretrained('./model_ckpt')
     except Exception as e:
         print(f"Error loading model: {e}")

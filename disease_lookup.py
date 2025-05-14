@@ -6,6 +6,8 @@ import os
 import pandas as pd
 import numpy as np
 from txgnn import TxData
+from typing import List, Tuple
+from fuzzywuzzy import fuzz, process
 
 def find_disease_index_by_name(disease_name, use_disease_files=True):
     """Find the disease index for a given disease name in TxGNN.
@@ -91,6 +93,27 @@ def find_disease_index_by_name(disease_name, use_disease_files=True):
         print(f"Error finding disease index: {e}")
         return None, None, None
 
+def get_all_disease_names():
+    """Get all disease names from the CSV files"""
+    disease_files = [
+        'anemia.csv',
+        'adrenal_gland.csv',
+        'autoimmune.csv',
+        'cardiovascular.csv',
+        'cell_proliferation.csv',
+        'diabetes.csv',
+        'mental_health.csv',
+        'metabolic_disorder.csv',
+        'neurodigenerative.csv'
+    ]
+    base_path = './data/disease_files'
+    all_disease_names = set()
+    for file_name in disease_files:
+        file_path = os.path.join(base_path, file_name)
+        df = pd.read_csv(file_path)
+        all_disease_names.update(df['node_name'].unique())
+    return list(all_disease_names)
+
 def find_burkitts_lymphoma_index():
     """
     Special case function for directly finding the Burkitt's Lymphoma index.
@@ -136,6 +159,81 @@ def find_burkitts_lymphoma_index():
     
     # If still not found, fall back to the general function
     return find_disease_index_by_name("Burkitt lymphoma")
+
+
+def fuzzy_search_list(query: str, 
+                      name_list: List[str],
+                      method: str = "fuzzywuzzy",
+                      threshold: float = 70.0,
+                      max_results: int = 5) -> List[Tuple[str, float]]:
+    """
+    Search for a name using fuzzy matching.
+    
+    Args:
+        query (str): The name to search for
+        name_list (list): List of names to search through
+        method (str): The matching method to use. Options: 
+                      "fuzzywuzzy" - Uses fuzzywuzzy's process.extract
+                      "difflib" - Uses difflib's get_close_matches
+                      "regex" - Uses regex partial matching
+        threshold (float): Minimum similarity score (0-100) for matches to be returned
+        max_results (int): Maximum number of results to return
+    
+    Returns:
+        list: List of tuples containing (name, similarity_score)
+    """
+    query = query.lower().strip()
+    results = []
+    
+    if method == "fuzzywuzzy":
+        # Use fuzzywuzzy to find matches
+        matches = process.extract(query, name_list, 
+                                  scorer=fuzz.token_sort_ratio, 
+                                  limit=max_results)
+        for name, score in matches:
+            if score >= threshold:
+                results.append((name, score))
+    
+    elif method == "difflib":
+        # Use difflib to find matches
+        matches = difflib.get_close_matches(query, name_list, n=max_results, cutoff=threshold/100)
+        
+        # Calculate similarity scores
+        for name in matches:
+            similarity = difflib.SequenceMatcher(None, query, name).ratio() * 100
+            results.append((name, similarity))
+            
+        # Sort by similarity score
+        results.sort(key=lambda x: x[1], reverse=True)
+    
+    elif method == "regex":
+        # Build a simple regex pattern for partial matching
+        pattern = f".*{re.escape(query)}.*"
+        regex = re.compile(pattern)
+        
+        # Find matches
+        matches = []
+        for name in name_list:
+            if regex.match(name):
+                # Calculate similarity using difflib
+                similarity = difflib.SequenceMatcher(None, query, name).ratio() * 100
+                if similarity >= threshold:
+                    matches.append((name, similarity))
+        
+        # Sort by similarity and take top matches
+        matches.sort(key=lambda x: x[1], reverse=True)
+        for name, score in matches[:max_results]:
+            results.append((name, score))
+    
+    else:
+        raise ValueError(f"Unknown method: {method}. Choose from 'fuzzywuzzy', 'difflib', or 'regex'")
+
+    # Sort by similarity score
+    results.sort(key=lambda x: x[1], reverse=True)
+    # If no results, return empty list
+    if not results:
+        return [('', 0.0)]
+    return results
 
 if __name__ == "__main__":
     # Test with Burkitt's Lymphoma
