@@ -143,3 +143,4 @@ checkpoints_all_seeds/
 
 # misc
 .DS_Store
+**/.claude/settings.local.json
