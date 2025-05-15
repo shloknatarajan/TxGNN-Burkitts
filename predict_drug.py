@@ -53,6 +53,17 @@ class DrugPredictor:
         
         # Create reverse mappings
         self._create_reverse_mappings()
+
+        # load WHO drug names
+        self.who_filtered = self._load_who_drug_names()
+    
+    def _load_who_drug_names(self):
+        who_filtered = set()
+        with open('who_essentials/who_filtered_db_ids.txt', 'r') as f:
+            for line in f:
+                who_filtered.add(line.strip())
+        return who_filtered
+
     
     def _create_reverse_mappings(self):
         """Create reverse mappings from names to indices"""
@@ -73,12 +84,12 @@ class DrugPredictor:
                 self.disease_name_to_idx[name.lower()] = idx
             except KeyError:
                 continue
-    
+
     def predict_for_disease(self, disease_name, drug_name=None, relation='indication', top_n=10):
         """
         Predict likelihood of drugs treating a specific disease.
         
-        Args:
+        Args:s
             disease_name: Name of the disease to evaluate
             drug_name: Name of the drug to evaluate. If None, returns predictions for all drugs.
             relation: Relationship type ('indication', 'contraindication', or 'off-label')
@@ -90,8 +101,7 @@ class DrugPredictor:
         """
         # Check if disease exists
         disease_name_lower = disease_name.lower()
-        if disease_name_lower not in self.disease_name_to_idx:
-            logger.error(f"Disease '{disease_name}' not found")
+        if not self.verify_disease_name(disease_name_lower):
             return pd.DataFrame(columns=['drug_name', 'score', 'rank'])
         
         # Get disease index
@@ -106,136 +116,6 @@ class DrugPredictor:
             return_raw=True
         )
         
-        # If raw data isn't returned as expected, try again with verbose output
-        if not isinstance(result, dict) or 'result_df' not in result:
-            logger.warning("Initial prediction failed, retrying with verbose output...")
-            result = self.tx_eval.eval_disease_centric(
-                disease_idxs=[disease_idx],
-                relation=relation,
-                verbose=True,
-                return_raw=True
-            )
-        
-        # Create a DataFrame from results
-        if isinstance(result, dict) and 'result_df' in result:
-            predictions_df = result['result_df']
-            
-            # Add drug names to the predictions
-            predictions_df['drug_name'] = predictions_df['drug_idx'].apply(
-                lambda x: self.mappings['id2name_drug'].get(
-                    self.mappings['idx2id_drug'].get(x, ''), 'Unknown'
-                )
-            )
-            
-            # If specific drug requested
-            if drug_name:
-                drug_name_lower = drug_name.lower()
-                if drug_name_lower in self.drug_name_to_idx:
-                    drug_idx = self.drug_name_to_idx[drug_name_lower]
-                    # Find this drug in the predictions
-                    drug_result = predictions_df[predictions_df['drug_idx'] == drug_idx]
-                    if not drug_result.empty:
-                        score = drug_result['score'].values[0]
-                        rank = drug_result['rank'].values[0]
-                        return {
-                            'disease_name': disease_name,
-                            'drug_name': drug_name,
-                            'score': score,
-                            'rank': rank,
-                            'total_drugs': len(predictions_df)
-                        }
-                    else:
-                        logger.error("Drug found in database but not in prediction results")
-                        return {
-                            'disease_name': disease_name,
-                            'drug_name': drug_name,
-                            'error': 'Drug found in database but not in prediction results'
-                        }
-                else:
-                    logger.error("Drug not found in database")
-                    return {
-                        'disease_name': disease_name,
-                        'drug_name': drug_name,
-                        'error': 'Drug not found in database'
-                    }
-            else:
-                return predictions_df.sort_values('score', ascending=False)[
-                    ['drug_name', 'score', 'rank']
-                ].reset_index(drop=True)
-        else:
-            if drug_name:
-                logger.error("Prediction failed")
-                return {
-                    'disease_name': disease_name,
-                    'drug_name': drug_name,
-                    'error': 'Prediction failed'
-                }
-            else:
-                return pd.DataFrame(columns=['drug_name', 'score', 'rank'])
-    
-    def predict_custom_drug_disease(self, drug_name, disease_name, relation='indication'):
-        """
-        Predict likelihood for a custom drug-disease pair.
-        
-        Args:
-            drug_name: Name of the drug
-            disease_name: Name of the disease
-            relation: Relationship type ('indication', 'contraindication', or 'off-label')
-            
-        Returns:
-            Prediction score or error message
-        """
-        drug_name_lower = drug_name.lower()
-        disease_name_lower = disease_name.lower()
-        
-        # Check if drug and disease exist in database
-        if drug_name_lower not in self.drug_name_to_idx:
-            return {'error': f"Drug '{drug_name}' not found in database"}
-        
-        if disease_name_lower not in self.disease_name_to_idx:
-            return {'error': f"Disease '{disease_name}' not found in database"}
-        
-        # Get indices
-        drug_idx = self.drug_name_to_idx[drug_name_lower]
-        disease_idx = self.disease_name_to_idx[disease_name_lower]
-        
-        # Create DataFrame with the pair to predict
-        pairs_df = pd.DataFrame({
-            'x_idx': [drug_idx],
-            'relation': [relation],
-            'y_idx': [disease_idx]
-        })
-        
-        # Get prediction
-        try:
-            predictions = self.tx_gnn.predict(pairs_df)
-            # The prediction structure depends on the specific model implementation
-            # We need to extract the score from the prediction object
-            if predictions and len(predictions) > 0:
-                # Try to extract score (implementation may vary)
-                for etype, pred in predictions.items():
-                    if len(pred[0]) > 0:
-                        score = float(pred[0].cpu().detach().numpy()[0])
-                        return {
-                            'drug_name': drug_name,
-                            'disease_name': disease_name,
-                            'relation': relation,
-                            'score': score
-                        }
-            
-            return {
-                'drug_name': drug_name,
-                'disease_name': disease_name,
-                'relation': relation,
-                'error': 'Could not extract prediction score'
-            }
-        except Exception as e:
-            return {
-                'drug_name': drug_name,
-                'disease_name': disease_name,
-                'relation': relation,
-                'error': f'Prediction failed: {str(e)}'
-            }
     
     def list_available_drugs(self, limit: Optional[int] = None):
         """Return a list of available drugs in the database"""
@@ -269,7 +149,7 @@ class DrugPredictor:
         except KeyError:
             return {'error': f"Disease '{disease_name}' found in name mapping but not in ID mapping"}
     
-    def fuzzy_search_disease(self, disease_name, limit: Optional[int] = 10):
+    def fuzzy_search_disease(self, disease_name, limit: Optional[int] = 10) -> List[Tuple[str, int, float]]:
         """
         Fuzzy search for disease names
         
@@ -296,8 +176,11 @@ class DrugPredictor:
         if disease_name in self.disease_name_to_idx:
             return disease_name, self.disease_name_to_idx[disease_name]
         else:
-            logger.warning(f"Disease '{disease_name}' not found")
-            return None, None
+            logger.error(f"Disease '{disease_name}' not found")
+            similar_disease_names = [x[0] for x in self.fuzzy_search_disease(disease_name, limit=3)]
+            if len(similar_disease_names) > 0:
+                logger.error(f"Did you mean?: {similar_disease_names}")
+            return None
 
 # Example usage
 if __name__ == "__main__":
