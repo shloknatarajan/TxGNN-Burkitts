@@ -8,13 +8,13 @@ Find a drug from the WHO Essential Medicine List that can potentially provide a 
 | --- | --- | --- |
 | General           | Fix Dependencies | ✅ |
 |                   | Setup on GCP | ✅ |
-|                   | Get prediction MVP | |
+|                   | Get prediction MVP |✅ |
+                    | Experimentation Pipeline | |
 | WHO List Scraping | Find Latest List | ✅ |
 |                   | Convert to CSV | ✅ |
-|                   | Figure out what ID format to use | |
-|                   | Convert to ID Format | |
+|                   | Figure out what ID format to use | ✅ |
+|                   | Convert to ID Format | ✅ |
                     | DrugBank lookup | ✅ |
-                    | RxNorm name normalization |  |
 
 
 
