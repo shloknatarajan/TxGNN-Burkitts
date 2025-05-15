@@ -115,39 +115,39 @@ class DrugPredictor:
             verbose=False,
             return_raw=True
         )
-        
+
+        self.predictions = result['prediction']['7243.0']
+        return self.predictions
     
-    def list_available_drugs(self, limit: Optional[int] = None):
-        """Return a list of available drugs in the database"""
-        drug_names = list(self.drug_name_to_idx.keys())
-        if limit and limit < len(drug_names):
-            return sorted(drug_names)[:limit]
-        return sorted(drug_names)
-    
-    def list_available_diseases(self, limit: Optional[int] = None):
-        """Return a list of available diseases in the database"""
-        disease_names = list(self.disease_name_to_idx.keys())
-        if limit and limit < len(disease_names):
-            return sorted(disease_names)[:limit]
-        return sorted(disease_names)
-    
-    def get_disease_info(self, disease_name):
-        """Return information about a specific disease from the database"""
-        disease_name_lower = disease_name.lower()
-        if disease_name_lower not in self.disease_name_to_idx:
-            return {'error': f"Disease '{disease_name}' not found in database"}
-        
-        disease_idx = self.disease_name_to_idx[disease_name_lower]
-        try:
-            disease_id = self.mappings['idx2id_disease'][disease_idx]
-            disease_name_exact = self.mappings['id2name_disease'][disease_id]
-            return {
-                'name': disease_name_exact,
-                'id': disease_id,
-                'index': disease_idx
-            }
-        except KeyError:
-            return {'error': f"Disease '{disease_name}' found in name mapping but not in ID mapping"}
+    def filter_who_drugs(self):
+        """
+        Filter predictions to only include WHO drugs
+        Save the results to a csv file
+        """
+        who_filtered = set()
+        with open('who_essentials/who_filtered_db_ids.txt', 'r') as f:
+            for line in f:
+                who_filtered.add(line.strip())
+
+        match_scores = {}
+        for db_id in who_filtered:
+            # Check if this drug is in the prediction
+            if db_id in self.predictions:
+                match_scores[db_id] = self.predictions[db_id]
+        positive_matches = {x: match_scores[x] for x in match_scores if match_scores[x] > 0}
+
+        # Convert to a csv of names and their scores
+        rows = []
+        for id, score in positive_matches.items():
+            name = self.mappings['id2name_drug'][id]
+            row = {'drugbank_id': id, 'drug_name': name, 'score': score}
+            rows.append(row)
+            
+        os.makedirs('results', exist_ok=True)
+        df = pd.DataFrame(rows)
+        df.to_csv('results/matches_indications_full_graph.csv', index=False)
+
+        return df
     
     def fuzzy_search_disease(self, disease_name, limit: Optional[int] = 10) -> List[Tuple[str, int, float]]:
         """
@@ -185,33 +185,6 @@ class DrugPredictor:
 # Example usage
 if __name__ == "__main__":
     predictor = DrugPredictor()
-    
-    # Check command line arguments
-    if len(sys.argv) < 2:
-        print("Usage: python predict_drug.py <disease_name> [drug_name]")
-        print("\nAvailable diseases (sample):")
-        sample_diseases = predictor.list_available_diseases(10)
-        for i, disease in enumerate(sample_diseases, 1):
-            print(f"{i}. {disease}")
-        sys.exit(1)
-    
-    disease_name = sys.argv[1]
-    
-    if len(sys.argv) > 2:
-        # Specific drug for disease requested
-        drug_name = sys.argv[2]
-        result = predictor.predict_for_disease(disease_name, drug_name)
-        print(f"\nPrediction for {drug_name} treating {disease_name}:")
-        for k, v in result.items():
-            print(f"{k}: {v}")
-    else:
-        # No drug specified, show top predictions for disease
-        print(f"\nTop 10 predicted drugs for treating {disease_name}:")
-        top_drugs = predictor.predict_for_disease(disease_name)
-        print(top_drugs)
-        
-        # Show a few available drugs
-        print("\nSample of available drugs:")
-        sample_drugs = predictor.list_available_drugs(10)
-        for i, drug in enumerate(sample_drugs, 1):
-            print(f"{i}. {drug}")
+    disease_name = "burkitt lymphoma"
+    predictor.predict_for_disease(disease_name)
+    predictor.filter_who_drugs()
