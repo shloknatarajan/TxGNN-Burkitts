@@ -6,8 +6,9 @@ import os
 import pandas as pd
 import numpy as np
 from txgnn import TxData
-from typing import List, Tuple
+from typing import List, Tuple, Optional
 from fuzzywuzzy import fuzz, process
+from loguru import logger
 
 def find_disease_index_by_name(disease_name, use_disease_files=True):
     """Find the disease index for a given disease name in TxGNN.
@@ -93,7 +94,7 @@ def find_disease_index_by_name(disease_name, use_disease_files=True):
         print(f"Error finding disease index: {e}")
         return None, None, None
 
-def get_all_disease_names():
+def get_all_disease_names_from_files():
     """Get all disease names from the CSV files"""
     disease_files = [
         'anemia.csv',
@@ -112,7 +113,32 @@ def get_all_disease_names():
         file_path = os.path.join(base_path, file_name)
         df = pd.read_csv(file_path)
         all_disease_names.update(df['node_name'].unique())
+    
     return list(all_disease_names)
+
+def get_all_disease_names_from_graph(refresh: bool = False):
+    """Get all disease names from the graph"""
+    if not refresh and os.path.exists('./data/disease_files/all_disease_names.txt'):
+        with open('./data/disease_files/all_disease_names.txt', 'r') as f:
+            logger.info("Found all disease names in all_disease_names.txt")
+            return [line.strip() for line in f]
+
+    logger.info("Calculating all disease names")
+    logger.info("Constructing graph")
+    data = TxData('./data')
+    data.prepare_split(split='full_graph', seed=42)
+    logger.info("Retrieving mappings")
+    mappings = data.retrieve_id_mapping()
+    id2name_disease = mappings['id2name_disease']
+    logger.info("Done getting all disease names from graph")
+
+    # Save to file
+    with open('./data/disease_files/all_disease_names.txt', 'w') as f:
+        logger.info("Writing disease names to all_disease_names.txt")
+        for name in id2name_disease.values():
+            f.write(f"{name}\n")
+    
+    return list(id2name_disease.values())
 
 def find_burkitts_lymphoma_index():
     """
@@ -165,7 +191,7 @@ def fuzzy_search_list(query: str,
                       name_list: List[str],
                       method: str = "fuzzywuzzy",
                       threshold: float = 70.0,
-                      max_results: int = 5) -> List[Tuple[str, float]]:
+                      limit: Optional[int] = 10) -> List[Tuple[str, float]]:
     """
     Search for a name using fuzzy matching.
     
@@ -177,7 +203,7 @@ def fuzzy_search_list(query: str,
                       "difflib" - Uses difflib's get_close_matches
                       "regex" - Uses regex partial matching
         threshold (float): Minimum similarity score (0-100) for matches to be returned
-        max_results (int): Maximum number of results to return
+        limit (int): Maximum number of results to return
     
     Returns:
         list: List of tuples containing (name, similarity_score)
@@ -189,14 +215,14 @@ def fuzzy_search_list(query: str,
         # Use fuzzywuzzy to find matches
         matches = process.extract(query, name_list, 
                                   scorer=fuzz.token_sort_ratio, 
-                                  limit=max_results)
+                                  limit=limit)
         for name, score in matches:
             if score >= threshold:
                 results.append((name, score))
     
     elif method == "difflib":
         # Use difflib to find matches
-        matches = difflib.get_close_matches(query, name_list, n=max_results, cutoff=threshold/100)
+        matches = difflib.get_close_matches(query, name_list, n=limit, cutoff=threshold/100)
         
         # Calculate similarity scores
         for name in matches:
@@ -222,7 +248,7 @@ def fuzzy_search_list(query: str,
         
         # Sort by similarity and take top matches
         matches.sort(key=lambda x: x[1], reverse=True)
-        for name, score in matches[:max_results]:
+        for name, score in matches[:limit]:
             results.append((name, score))
     
     else:

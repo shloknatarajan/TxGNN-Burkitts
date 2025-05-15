@@ -1,0 +1,480 @@
+drug_name,closest_name,drugbank_id,score
+"acetazolamide
+",acetazolamide,DB00819,100.0
+"acetic acid
+",acetic acid,DB03166,100.0
+"acetylcysteine 
+",acetylcysteine,DB06151,100.0
+"acetylsalicylic acid 
+",acetylsalicylic acid,DB00945,100.0
+"albendazole
+",albendazole,DB00518,100.0
+"alcuronium
+",alcuronium,DB13648,100.0
+"allopurinol 
+",allopurinol,DB00437,100.0
+"aluminium hydroxide 
+",aluminum hydroxide,DB06723,97.0
+"amikacin
+",amikacin,DB00479,100.0
+"amiloride
+",amiloride,DB00594,100.0
+"amiodarone 
+",amiodarone,DB01118,100.0
+"amitriptyline
+",amitriptyline,DB00321,100.0
+"amlodipine
+",amlodipine,DB00381,100.0
+"amodiaquine
+",amodiaquine,DB00613,100.0
+"amoxicillin 
+",amoxicillin,DB01060,100.0
+"amphotericin B
+",amphotericin b,DB00681,100.0
+"ampicillin 
+",ampicillin,DB00415,100.0
+"artemether
+",artemether,DB06697,100.0
+"artemether + lumefantrine
+",lumefantrine co-artemether,DB13085,94.0
+"artesunate
+",artesunate,DB09274,100.0
+"ascorbic acid 
+",ascorbic acid,DB00126,100.0
+"atazanavir
+",atazanavir,DB01072,100.0
+"atenolol
+",atenolol,DB00335,100.0
+"atropine 
+",atropine,DB00572,100.0
+"azathioprine
+",azathioprine,DB00993,100.0
+"azithromycin
+",azithromycin,DB00207,100.0
+"barium sulfate 
+",barium sulfate,DB11150,100.0
+"BCG vaccine
+",bcg vaccine,DB12768,100.0
+"benznidazole
+",benznidazole,DB11989,100.0
+"benzoyl peroxide
+",benzoyl peroxide,DB09096,100.0
+"benzyl benzoate
+",benzyl benzoate,DB00676,100.0
+"benzylpenicillin
+",benzylpenicillin,DB01053,100.0
+"betamethasone
+",betamethasone,DB00443,100.0
+"biperiden
+",biperiden,DB00810,100.0
+"bleomycin
+",bleomycin,DB00290,100.0
+"budesonide 
+",budesonide,DB01222,100.0
+"bupivacaine
+",bupivacaine,DB00297,100.0
+"calcium gluconate 
+",calcium gluconate,DB11126,100.0
+"capreomycin
+",capreomycin,DB00314,100.0
+"carbamazepine
+",carbamazepine,DB00564,100.0
+"carboplatin 
+",carboplatin,DB00958,100.0
+"cefazolin
+",cefazolin,DB01327,100.0
+"cefixime
+",cefixime,DB00671,100.0
+"cefotaxime 
+",cefotaxime,DB00493,100.0
+"ceftazidime 
+",ceftazidime,DB00438,100.0
+"ceftriaxone
+",ceftriaxone,DB01212,100.0
+"charcoal, activated
+",activated charcoal,DB09278,100.0
+"chlorambucil
+",chlorambucil,DB00291,100.0
+"chloramphenicol
+",chloramphenicol,DB00446,100.0
+"chlorhexidine 
+",chlorhexidine,DB00878,100.0
+"chloroquine 
+",chloroquine,DB00608,100.0
+"chloroxylenol 
+",chloroxylenol,DB11121,100.0
+"chlorphenamine
+",chlorpheniramine,DB01114,93.0
+"chlorpromazine 
+",chlorpromazine,DB00477,100.0
+"cholecalciferol 
+",cholecalciferol,DB00169,100.0
+"ciprofloxacin 
+",ciprofloxacin,DB00537,100.0
+"clindamycin 
+",clindamycin,DB01190,100.0
+"clofazimine
+",clofazimine,DB00845,100.0
+"clomifene
+",clomifene,DB00882,100.0
+"clomipramine
+",clomipramine,DB01242,100.0
+"clotrimazole 
+",clotrimazole,DB00257,100.0
+"cloxacillin 
+",cloxacillin,DB01147,100.0
+"coal tar 
+",coal tar,DB11082,100.0
+"codeine
+",codeine,DB00318,100.0
+"cyclophosphamide 
+",cyclophosphamide,DB00531,100.0
+"cycloserine
+",cycloserine,DB00260,100.0
+"cytarabine
+",cytarabine,DB00987,100.0
+"dacarbazine 
+",dacarbazine,DB00851,100.0
+"dactinomycin
+",dactinomycin,DB00970,100.0
+"dapsone 
+",dapsone,DB00250,100.0
+"daunorubicin
+",daunorubicin,DB00694,100.0
+"deferoxamine 
+",deferoxamine,DB00746,100.0
+"dexamethasone
+",dexamethasone,DB01234,100.0
+"diazepam
+",diazepam,DB00829,100.0
+"diethylcarbamazine
+",diethylcarbamazine,DB00711,100.0
+"digoxin
+",digoxin,DB00390,100.0
+"diloxanide 
+",diloxanide,DB08792,100.0
+"dimercaprol 
+",dimercaprol,DB06782,100.0
+"DL‐methionine 
+",d-methionine,DB02893,96.0
+"dopamine
+",dopamine,DB00988,100.0
+"doxorubicin
+",doxorubicin,DB00997,100.0
+"doxycycline
+",doxycycline,DB00254,100.0
+"eflornithine 
+",eflornithine,DB06243,100.0
+"enalapril 
+",enalapril,DB00584,100.0
+"ephedrine
+",ephedrine,DB01364,100.0
+"ergocalciferol 
+",ergocalciferol,DB00153,100.0
+"ergometrine
+",ergometrine,DB01253,100.0
+"erythromycin 
+",erythromycin,DB00199,100.0
+"acetate 
+",acetate,DB14511,100.0
+"ethambutol
+",ethambutol,DB00330,100.0
+"ethanol
+",ethanol,DB00898,100.0
+"ethinylestradiol 
+",ethinylestradiol,DB00977,100.0
+"ethionamide
+",ethionamide,DB00609,100.0
+"ethosuximide
+",ethosuximide,DB00593,100.0
+"etoposide 
+",etoposide,DB00773,100.0
+"fluconazole
+",fluconazole,DB00196,100.0
+"flucytosine
+",flucytosine,DB01099,100.0
+"fludrocortisone
+",fludrocortisone,DB00687,100.0
+"fluorescein
+",fluorescein,DB00693,100.0
+"fluorouracil 
+",fluorouracil,DB00544,100.0
+"fluoxetine 
+",fluoxetine,DB00472,100.0
+"fluphenazine
+",fluphenazine,DB00623,100.0
+"folic acid 
+",folic acid,DB00158,100.0
+"furosemide
+",furosemide,DB00695,100.0
+"gentamicin 
+",gentamicin,DB00798,100.0
+"glutaral
+",glutaral,DB03266,100.0
+"griseofulvin
+",griseofulvin,DB00400,100.0
+"haloperidol
+",haloperidol,DB00502,100.0
+"halothane
+",halothane,DB01159,100.0
+"hepatitis A vaccine
+",hepatitis a vaccine,DB10989,100.0
+"hepatitis B vaccine
+",hepatitis a vaccine,DB10989,95.0
+"hydralazine 
+",hydralazine,DB01275,100.0
+"hydrochlorothiazide 
+",hydrochlorothiazide,DB00999,100.0
+"hydrocortisone
+",hydrocortisone,DB00741,100.0
+"hydroxocobalamin 
+",hydroxocobalamin,DB00200,100.0
+"ibuprofen
+",ibuprofen,DB01050,100.0
+"ifosfamide
+",ifosfamide,DB01181,100.0
+"iodine 
+",iodine,DB05382,100.0
+"iohexol 
+",iohexol,DB01362,100.0
+"isoniazid 
+",isoniazid,DB00951,100.0
+"isosorbide dinitrate 
+",isosorbide dinitrate,DB00883,100.0
+"ivermectin 
+",ivermectin,DB00602,100.0
+"kanamycin
+",kanamycin,DB01172,100.0
+"ketamine
+",ketamine,DB01221,100.0
+"levamisole 
+",levamisole,DB00848,100.0
+"levonorgestrel 
+",levonorgestrel,DB00367,100.0
+"levothyroxine
+",levothyroxine,DB00451,100.0
+"lithium carbonate 
+",lithium carbonate,DB14509,100.0
+"lorazepam
+",lorazepam,DB00186,100.0
+"magnesium hydroxide 
+",magnesium hydroxide,DB09104,100.0
+"magnesium sulfate
+",magnesium sulfate,DB00653,100.0
+"mannitol 
+",mannitol,DB00742,100.0
+"mebendazole
+",mebendazole,DB00643,100.0
+"medroxyprogesterone acetate 
+",medroxyprogesterone acetate,DB00603,100.0
+"mefloquine
+",mefloquine,DB00358,100.0
+"melarsoprol
+",melarsoprol,DB12864,100.0
+"mercaptopurine
+",mercaptopurine,DB01033,100.0
+"metformin 
+",metformin,DB00331,100.0
+"methadone
+",methadone,DB00333,100.0
+"methotrexate
+",methotrexate,DB00563,100.0
+"methyldopa
+",methyldopa,DB00968,100.0
+"metoclopramide 
+",metoclopramide,DB01233,100.0
+"metronidazole 
+",metronidazole,DB00916,100.0
+"miconazole
+",miconazole,DB01110,100.0
+"mifepristone
+",mifepristone,DB00834,100.0
+"misoprostol 
+",misoprostol,DB00929,100.0
+"morphine
+",morphine,DB00295,100.0
+"naloxone
+",naloxone,DB01183,100.0
+"neostigmine 
+",neostigmine,DB01400,100.0
+"niclosamide
+",niclosamide,DB06803,100.0
+"nicotinamide
+",nicotinamide,DB02701,100.0
+"nifedipine
+",nifedipine,DB01115,100.0
+"nifurtimox 
+",nifurtimox,DB11820,100.0
+"nitrofurantoin
+",nitrofurantoin,DB00698,100.0
+"nitrous oxide
+",nitrous oxide,DB06690,100.0
+"norethisterone 
+",norethisterone,DB00717,100.0
+"nystatin
+",nystatin,DB00646,100.0
+"ofloxacin
+",ofloxacin,DB01165,100.0
+"omeprazole 
+",omeprazole,DB00338,100.0
+"ondansetron
+",ondansetron,DB00904,100.0
+"oseltamivir 
+",oseltamivir,DB00198,100.0
+"oxamniquine
+",oxamniquine,DB01096,100.0
+"oxygen 
+",oxygen,DB09140,100.0
+"oxytocin
+",oxytocin,DB00107,100.0
+"p‐aminosalicylic acid 
+",aminosalicylic acid,DB00233,95.0
+"paromomycin 
+",paromomycin,DB01421,100.0
+"penicillamine
+",penicillamine,DB00859,100.0
+"pentamidine
+",pentamidine,DB00738,100.0
+"permethrin 
+",permethrin,DB04930,100.0
+"pertussis vaccine 
+",pertussis vaccine,DB15274,100.0
+"phenobarbital
+",phenobarbital,DB01174,100.0
+"phenoxymethylpenicillin 
+",phenoxymethylpenicillin,DB00417,100.0
+"phenytoin 
+",phenytoin,DB00252,100.0
+"pilocarpine 
+",pilocarpine,DB01085,100.0
+"polyvidone iodine 
+",povidone-iodine,DB06812,94.0
+"potassium chloride
+",potassium chloride,DB00761,100.0
+"(Prussian blue) 
+",prussian blue,DB06783,100.0
+"potassium iodide 
+",potassium iodide,DB06715,100.0
+"potassium permanganate
+",potassium permanganate,DB13831,100.0
+"praziquantel
+",praziquantel,DB01058,100.0
+"prednisolone 
+",prednisolone,DB00860,100.0
+"primaquine
+",primaquine,DB01087,100.0
+"procaine benzylpenicillin
+",procaine benzylpenicillin,DB09320,100.0
+"procarbazine
+",procarbazine,DB01168,100.0
+"proguanil
+",proguanil,DB01131,100.0
+"promethazine
+",promethazine,DB01069,100.0
+"propranolol 
+",propranolol,DB00571,100.0
+"propylthiouracil 
+",propylthiouracil,DB00550,100.0
+"protamine sulfate 
+",protamine sulfate,DB09141,100.0
+"pyrantel 
+",pyrantel,DB11156,100.0
+"pyrazinamide
+",pyrazinamide,DB00339,100.0
+"pyridostigmine
+",pyridostigmine,DB00545,100.0
+"pyridoxine
+",pyridoxine,DB00165,100.0
+"pyrimethamine 
+",pyrimethamine,DB00205,100.0
+"quinine
+",quinine,DB00468,100.0
+"ranitidine
+",ranitidine,DB00863,100.0
+"ribavirin
+",ribavirin,DB00811,100.0
+"riboflavin
+",riboflavin,DB00140,100.0
+"rifabutin
+",rifabutin,DB00615,100.0
+"ritonavir
+",ritonavir,DB00503,100.0
+"rotavirus vaccine 
+",rotavirus vaccine,DB10276,100.0
+"salicylic acid
+",salicylic acid,DB00936,100.0
+"selenium sulfide 
+",selenium sulfide,DB00971,100.0
+"silver sulfadiazine 
+",silver sulfadiazine,DB05245,100.0
+"simvastatin
+",simvastatin,DB00641,100.0
+"sodium chloride 
+",sodium chloride,DB09153,100.0
+"sodium fluoride
+",sodium fluoride,DB09325,100.0
+"sodium lactate 
+",sodium acetate,DB09395,93.0
+"sodium nitrite 
+",sodium nitrate,DB15952,93.0
+"sodium stibogluconate or  
+",sodium stibogluconate,DB05630,93.0
+"meglumine antimoniate 
+",meglumine antimoniate,DB13732,100.0
+"spectinomycin 
+",spectinomycin,DB00919,100.0
+"spironolactone 
+",spironolactone,DB00421,100.0
+"streptokinase
+",streptokinase,DB00086,100.0
+"streptomycin
+",streptomycin,DB01082,100.0
+"sulfadiazine
+",sulfadiazine,DB00359,100.0
+"sulfasalazine
+",sulfasalazine,DB00795,100.0
+"tamoxifen 
+",tamoxifen,DB00675,100.0
+"testosterone
+",testosterone,DB00624,100.0
+"tetracaine 
+",tetracaine,DB09085,100.0
+"tetracycline
+",tetracycline,DB00759,100.0
+"thiamine
+",thiamine,DB00152,100.0
+"thiopental 
+",thiopental,DB00599,100.0
+"timolol
+",timolol,DB00373,100.0
+"triclabendazole 
+",triclabendazole,DB12245,100.0
+"trimethoprim 
+",trimethoprim,DB00440,100.0
+"tropicamide
+",tropicamide,DB00809,100.0
+"tuberculin, purified protein derivative (PPD)
+",tuberculin purified protein derivative,DB11601,95.0
+"typhoid vaccine 
+",typhoid vaccine,DB14022,100.0
+"urea 
+",urea,DB03904,100.0
+"valproic acid
+",valproic acid,DB00313,100.0
+"vancomycin
+",vancomycin,DB00512,100.0
+"vecuronium
+",vecuronium,DB01339,100.0
+"verapamil 
+",verapamil,DB00661,100.0
+"vinblastine
+",vinblastine,DB00570,100.0
+"vincristine
+",vincristine,DB00541,100.0
+"warfarin 
+",warfarin,DB00682,100.0
+"xylometazoline 
+",xylometazoline,DB06694,100.0
+"yellow fever vaccine 
+",yellow fever vaccine,DB10805,100.0
+zinc sulfate,zinc sulfate,DB09322,100.0

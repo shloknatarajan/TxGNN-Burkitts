@@ -1,0 +1,63 @@
+drugbank_id,drug_name,score
+DB00681,Amphotericin B,0.16607022
+DB00698,Nitrofurantoin,0.36226022
+DB00518,Albendazole,0.69465566
+DB01168,Procarbazine,4.099097
+DB00936,Salicylic acid,0.7296548
+DB00795,Sulfasalazine,1.3136445
+DB00608,Chloroquine,2.6914077
+DB01242,Clomipramine,0.22380137
+DB00291,Chlorambucil,4.863766
+DB00468,Quinine,3.5215006
+DB00987,Cytarabine,3.2979133
+DB00544,Fluorouracil,2.0313575
+DB00993,Azathioprine,1.461205
+DB05630,Sodium stibogluconate,1.5526025
+DB00446,Chloramphenicol,3.3904085
+DB00676,Benzyl benzoate,0.3838663
+DB00252,Phenytoin,0.18284154
+DB00541,Vincristine,5.587366
+DB01181,Ifosfamide,3.844625
+DB00330,Ethambutol,1.5088985
+DB00570,Vinblastine,4.4676323
+DB00741,Hydrocortisone,4.6272593
+DB00359,Sulfadiazine,3.1315122
+DB13732,Meglumine antimoniate,0.75475705
+DB00199,Erythromycin,0.6653383
+DB00773,Etoposide,2.4820373
+DB00860,Prednisolone,3.9158869
+DB00970,Dactinomycin,1.9436206
+DB01099,Flucytosine,2.0557399
+DB00615,Rifabutin,2.1087074
+DB00971,Selenium Sulfide,0.16320777
+DB00443,Betamethasone,4.7285757
+DB00687,Fludrocortisone,2.6658258
+DB11820,Nifurtimox,1.4133838
+DB01174,Phenobarbital,0.25099182
+DB05382,Iodine,1.0271461
+DB00290,Bleomycin,1.7710516
+DB01131,Proguanil,0.70001554
+DB00571,Propranolol,0.61122
+DB00929,Misoprostol,0.84557533
+DB00564,Carbamazepine,0.045766234
+DB00693,Fluorescein,0.46929598
+DB01234,Dexamethasone,4.362052
+DB00916,Metronidazole,1.1559961
+DB00834,Mifepristone,2.31732
+DB00958,Carboplatin,0.33339477
+DB01033,Mercaptopurine,3.3775187
+DB03904,Urea,1.3649945
+DB01165,Ofloxacin,1.5056983
+DB00694,Daunorubicin,3.6246157
+DB00851,Dacarbazine,0.8065736
+DB01190,Clindamycin,0.111049175
+DB00367,Levonorgestrel,0.78071606
+DB00997,Doxorubicin,2.8809156
+DB00531,Cyclophosphamide,0.23338807
+DB00859,Penicillamine,0.8829174
+DB00537,Ciprofloxacin,0.2178731
+DB00400,Griseofulvin,0.030251592
+DB00563,Methotrexate,3.6860855
+DB00904,Ondansetron,0.53264385
+DB05245,Silver sulfadiazine,0.3096038
+DB00250,Dapsone,2.071403
